@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Tasks - Create Account</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="ocean-background">
+        <div class="waves"></div>
+        <div class="waves wave2"></div>
+        <div class="waves wave3"></div>
+    </div>
+
+    <div class="login-container">
+        <div class="login-shell">
+            <div class="login-header">
+                <h1 class="login-title">🏖️ Join Our Ocean</h1>
+                <p class="login-subtitle">Create your beach paradise account</p>
+            </div>
+
+            <form id="signupForm" class="login-form">
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <input type="text" id="username" name="username" required minlength="3" maxlength="20">
+                        <label for="username">Choose Your Beach Name</label>
+                        <span class="input-icon">🏄‍♀️</span>
+                    </div>
+                    <small class="input-hint">3-20 characters, letters and numbers only</small>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email Address</label>
+                        <span class="input-icon">📧</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <input type="password" id="password" name="password" required minlength="6">
+                        <label for="password">Create Password</label>
+                        <span class="input-icon">🔒</span>
+                    </div>
+                    <small class="input-hint">At least 6 characters</small>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        <label for="confirmPassword">Confirm Password</label>
+                        <span class="input-icon">🔐</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <select id="favoriteBeach" name="favoriteBeach" required>
+                            <option value="">Select your vibe...</option>
+                            <option value="tropical">🏝️ Tropical Paradise</option>
+                            <option value="sunset">🌅 Sunset Beach</option>
+                            <option value="rocky">🪨 Rocky Coastline</option>
+                            <option value="sandy">🏖️ Sandy Shores</option>
+                            <option value="coral">🐠 Coral Reef</option>
+                            <option value="lighthouse">⚓ Lighthouse Bay</option>
+                        </select>
+                        <label for="favoriteBeach">Your Beach Vibe</label>
+                        <span class="input-icon">🌊</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="wave-button">
+                    <span>Dive Into the Ocean</span>
+                    <div class="ripple"></div>
+                </button>
+
+                <div class="login-options">
+                    <div class="terms-check">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I agree to ride the waves responsibly 🌊</label>
+                    </div>
+                </div>
+            </form>
+
+            <div class="signup-prompt">
+                <p>Already have a beach account? <a href="/login" class="signup-link">Ride the waves back</a></p>
+            </div>
+        </div>
+
+        <!-- Floating decorative elements -->
+        <div class="floating-elements">
+            <div class="floating-shell shell1">🐚</div>
+            <div class="floating-shell shell2">⭐</div>
+            <div class="floating-shell shell3">🌊</div>
+            <div class="floating-shell shell4">🐠</div>
+            <div class="floating-shell shell5">🦀</div>
+            <div class="floating-shell shell6">🏄‍♀️</div>
+        </div>
+    </div>
+
+    <!-- Error/Success Messages -->
+    <div id="messageModal" class="message-modal hidden">
+        <div class="message-content">
+            <div id="messageText"></div>
+            <button class="close-message">&times;</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/signup.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,742 @@
+/* Beach Theme Variables */
+:root {
+    --ocean-blue: #4A90E2;
+    --deep-ocean: #2E5C8A;
+    --aqua: #7FDBFF;
+    --sand-beige: #F4E4BC;
+    --coral: #FF6B6B;
+    --seafoam: #98E4D6;
+    --wave-white: #F8FDFF;
+    --sunset-orange: #FFB347;
+    --shell-pink: #FFE5E5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--aqua) 50%, var(--sand-beige) 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Ocean Background Animation */
+.ocean-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 200px;
+    background: linear-gradient(135deg, var(--aqua) 0%, var(--wave-white) 100%);
+    border-radius: 50% 50% 0 0;
+    animation: wave 6s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+.wave2 {
+    animation: wave 8s ease-in-out infinite reverse;
+    opacity: 0.4;
+    height: 150px;
+}
+
+.wave3 {
+    animation: wave 10s ease-in-out infinite;
+    opacity: 0.3;
+    height: 100px;
+}
+
+@keyframes wave {
+    0%, 100% { transform: translateX(-50%) translateY(0px) rotate(0deg); }
+    50% { transform: translateX(-50%) translateY(-20px) rotate(1deg); }
+}
+
+/* Container and Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.app-header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.title-section {
+    flex: 1;
+    text-align: center;
+}
+
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+}
+
+.welcome-message {
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.logout-btn {
+    color: white;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.logout-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.app-title {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.app-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Main Content Layout */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+/* Task Input Section */
+.task-input-section {
+    position: sticky;
+    top: 20px;
+}
+
+.floating-shell {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    animation: shellFloat 4s ease-in-out infinite;
+}
+
+@keyframes shellFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+.task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.task-form input,
+.task-form textarea {
+    padding: 15px;
+    border: 2px solid var(--seafoam);
+    border-radius: 15px;
+    font-family: inherit;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+}
+
+.task-form input:focus,
+.task-form textarea:focus {
+    outline: none;
+    border-color: var(--ocean-blue);
+    box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+    transform: scale(1.02);
+}
+
+.task-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Wave Button */
+.wave-button {
+    background: linear-gradient(135deg, var(--ocean-blue), var(--deep-ocean));
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.wave-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(74, 144, 226, 0.4);
+}
+
+.wave-button .ripple {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.wave-button:active .ripple {
+    width: 300px;
+    height: 300px;
+}
+
+/* Tasks Ocean */
+.tasks-ocean {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.tasks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Task Bubble */
+.task-bubble {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border: 2px solid var(--seafoam);
+    transition: all 0.3s ease;
+    animation: bubbleFloat 5s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.task-bubble:nth-child(even) {
+    animation-delay: -2.5s;
+}
+
+.task-bubble:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.task-bubble.completed {
+    background: linear-gradient(135deg, var(--seafoam), var(--shell-pink));
+    opacity: 0.8;
+    transform: scale(0.98);
+}
+
+@keyframes bubbleFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-3px) rotate(0.5deg); }
+    66% { transform: translateY(3px) rotate(-0.5deg); }
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.task-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--deep-ocean);
+    margin: 0;
+}
+
+.task-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.task-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.task-btn:hover {
+    background: rgba(74, 144, 226, 0.1);
+    transform: scale(1.1);
+}
+
+.complete-btn { color: var(--seafoam); }
+.edit-btn { color: var(--sunset-orange); }
+.delete-btn { color: var(--coral); }
+
+.task-description {
+    color: #666;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.task-due-date {
+    font-size: 0.9rem;
+    color: var(--ocean-blue);
+    font-weight: 500;
+}
+
+.task-due-date.overdue {
+    color: var(--coral);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Calendar Section */
+.calendar-section {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.nav-button {
+    background: var(--ocean-blue);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+    background: var(--deep-ocean);
+    transform: scale(1.1);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    font-weight: 500;
+}
+
+.calendar-day:hover {
+    background: var(--seafoam);
+    transform: scale(1.1);
+}
+
+.calendar-day.has-tasks {
+    background: var(--aqua);
+    color: white;
+}
+
+.calendar-day.has-tasks::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 6px;
+    height: 6px;
+    background: var(--coral);
+    border-radius: 50%;
+}
+
+/* Starfish Animation */
+.starfish-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    text-align: center;
+    pointer-events: none;
+}
+
+.starfish-container.hidden {
+    display: none;
+}
+
+.starfish-container.show {
+    animation: starfishPop 2s ease-out;
+}
+
+.starfish {
+    font-size: 4rem;
+    animation: starfishSpin 1s ease-out;
+}
+
+.completion-message {
+    font-size: 1.5rem;
+    color: var(--ocean-blue);
+    font-weight: 600;
+    margin-top: 10px;
+    animation: messageSlide 1s ease-out 0.5s both;
+}
+
+.sparkles {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+}
+
+.sparkles span {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: sparkle 1.5s ease-out infinite;
+}
+
+.sparkles span:nth-child(1) { left: 0; animation-delay: 0s; }
+.sparkles span:nth-child(2) { left: 50%; animation-delay: 0.3s; }
+.sparkles span:nth-child(3) { right: 0; animation-delay: 0.6s; }
+
+@keyframes starfishPop {
+    0% { transform: translate(-50%, -50%) scale(0) rotate(0deg); opacity: 0; }
+    50% { transform: translate(-50%, -50%) scale(1.2) rotate(180deg); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1) rotate(360deg); opacity: 1; }
+}
+
+@keyframes starfishSpin {
+    0% { transform: rotate(0deg) scale(0); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes messageSlide {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes sparkle {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 1; }
+    50% { transform: translateY(-20px) scale(1.2); opacity: 0.7; }
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    animation: modalSlide 0.3s ease-out;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #999;
+}
+
+@keyframes modalSlide {
+    0% { transform: translateY(-50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .app-title {
+        font-size: 2rem;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .user-section {
+        order: -1;
+        margin-bottom: 10px;
+    }
+    
+    .floating-shell {
+        padding: 20px;
+    }
+    
+    .calendar-grid {
+        gap: 3px;
+    }
+    
+    .calendar-day {
+        font-size: 0.9rem;
+    }
+}
+
+/* Scrollbar Styling */
+.tasks-ocean::-webkit-scrollbar {
+    width: 8px;
+}
+
+.tasks-ocean::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+
+.tasks-ocean::-webkit-scrollbar-thumb {
+    background: var(--ocean-blue);
+    border-radius: 10px;
+}
+
+.tasks-ocean::-webkit-scrollbar-thumb:hover {
+    background: var(--deep-ocean);
+}
+
+/* Ocean Notification System */
+.ocean-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    max-width: 400px;
+    min-width: 300px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    z-index: 1000;
+    transform: translateX(450px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    cursor: pointer;
+}
+
+.ocean-notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.ocean-notification.hide {
+    transform: translateX(450px);
+    opacity: 0;
+}
+
+.ocean-notification.success {
+    border-left: 5px solid var(--seafoam);
+    background: linear-gradient(135deg, rgba(152, 228, 214, 0.1), rgba(255, 255, 255, 0.95));
+}
+
+.ocean-notification.error {
+    border-left: 5px solid var(--coral);
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 255, 255, 0.95));
+}
+
+.ocean-notification.warning {
+    border-left: 5px solid var(--sunset-orange);
+    background: linear-gradient(135deg, rgba(255, 179, 71, 0.1), rgba(255, 255, 255, 0.95));
+}
+
+.ocean-notification.info {
+    border-left: 5px solid var(--ocean-blue);
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(255, 255, 255, 0.95));
+}
+
+.notification-content {
+    padding: 20px;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.notification-message {
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--deep-ocean);
+    white-space: pre-line;
+    font-weight: 400;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #999;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.notification-close:hover {
+    background: rgba(255, 107, 107, 0.1);
+    color: var(--coral);
+    transform: scale(1.1);
+}
+
+/* Notification Animation Effects */
+.ocean-notification::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--aqua), var(--seafoam), var(--ocean-blue), var(--aqua));
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0;
+    animation: borderGlow 3s ease-in-out infinite;
+}
+
+.ocean-notification.success::before {
+    background: linear-gradient(45deg, var(--seafoam), var(--aqua), var(--seafoam));
+}
+
+.ocean-notification.error::before {
+    background: linear-gradient(45deg, var(--coral), #ff8a80, var(--coral));
+}
+
+.ocean-notification.warning::before {
+    background: linear-gradient(45deg, var(--sunset-orange), #ffcc80, var(--sunset-orange));
+}
+
+@keyframes borderGlow {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 0.3; }
+}
+
+/* Mobile Responsive Notifications */
+@media (max-width: 768px) {
+    .ocean-notification {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+        min-width: auto;
+        transform: translateY(-100px);
+    }
+    
+    .ocean-notification.show {
+        transform: translateY(0);
+    }
+    
+    .ocean-notification.hide {
+        transform: translateY(-100px);
+    }
+    
+    .notification-content {
+        padding: 15px;
+    }
+    
+    .notification-message {
+        font-size: 13px;
+    }
+}

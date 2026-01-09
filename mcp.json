@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "ocean-tasks": {
+      "command": "python",
+      "args": ["mcp_server.py"],
+      "env": {
+        "PYTHONPATH": "."
+      },
+      "disabled": false,
+      "autoApprove": [
+        "get_motivational_message",
+        "get_productivity_insight",
+        "analyze_task_patterns",
+        "generate_custom_message"
+      ]
+    }
+  }
+}

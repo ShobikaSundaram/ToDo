@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Tasks - Beach-Themed Task Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="ocean-background">
+        <div class="waves"></div>
+        <div class="waves wave2"></div>
+        <div class="waves wave3"></div>
+    </div>
+
+    <div class="container">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="title-section">
+                    <h1 class="app-title">🌊 Ocean Tasks</h1>
+                    <p class="app-subtitle">Let your productivity flow like the tide</p>
+                </div>
+                <div class="user-section">
+                    <span class="welcome-message">Welcome back, {{ username }}! 🏖️</span>
+                    <a href="/logout" class="logout-btn">🚪 Logout</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Task Input Section -->
+            <div class="task-input-section">
+                <div class="floating-shell">
+                    <form id="taskForm" class="task-form">
+                        <input type="text" id="taskTitle" placeholder="What's floating on your mind? 🐚" required>
+                        <textarea id="taskDescription" placeholder="Add some details..."></textarea>
+                        <input type="date" id="taskDueDate">
+                        <button type="submit" class="wave-button">
+                            <span>Cast into the Ocean</span>
+                            <div class="ripple"></div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Tasks Display -->
+            <div class="tasks-ocean">
+                <div id="tasksList" class="tasks-container">
+                    <!-- Tasks will be dynamically loaded here -->
+                </div>
+            </div>
+
+            <!-- Calendar Section -->
+            <div class="calendar-section">
+                <div class="calendar-header">
+                    <button id="prevMonth" class="nav-button">‹</button>
+                    <h3 id="currentMonth">Loading...</h3>
+                    <button id="nextMonth" class="nav-button">›</button>
+                </div>
+                <div id="calendar" class="calendar-grid">
+                    <!-- Calendar will be generated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Starfish Completion Animation -->
+    <div id="starfishAnimation" class="starfish-container hidden">
+        <div class="starfish">⭐</div>
+        <div class="completion-message">Great job! 🌊</div>
+        <div class="sparkles">
+            <span>✨</span>
+            <span>✨</span>
+            <span>✨</span>
+        </div>
+    </div>
+
+    <!-- Motivational Message Modal -->
+    <div id="motivationalModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🌊 Gentle Reminder</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="motivationalMessage"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
